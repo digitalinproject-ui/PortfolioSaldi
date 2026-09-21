@@ -343,9 +343,9 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
           boxShadow: '0 10px 30px rgba(0, 5, 60, 0.35)',
         }}
       >
-        <Compass size={16} color="#00f0ff" />
+        <Compass size={17} color="#00f0ff" />
         <span
-          className="font-display"
+          className="font-display telemetry-hud-label"
           style={{
             fontSize: '0.75rem',
             fontWeight: 700,
