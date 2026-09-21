@@ -33,13 +33,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         zIndex: 20,
       }}
     >
-      {/* Bottom-Left Hero Typography & Actions */}
+      {/* Subtle protective bottom gradient scrim on mobile for 100% WCAG AA text clarity */}
+      <div className="hero-mobile-scrim" />
+
+      {/* Hero Typography & Actions */}
       <div
+        className="hero-content-wrapper"
         style={{
           position: 'absolute',
-          bottom: 'clamp(32px, 6.5vh, 60px)',
-          left: 'clamp(24px, 5vw, 64px)',
-          maxWidth: '420px',
+          bottom: 'clamp(24px, 5vh, 60px)',
+          left: 'clamp(20px, 4.5vw, 64px)',
+          width: 'calc(100% - 40px)',
+          maxWidth: '440px',
           display: 'flex',
           flexDirection: 'column',
           gap: '10px',
@@ -65,7 +70,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <h1
           className="font-name"
           style={{
-            fontSize: 'clamp(3.8rem, 6.8vw, 5.6rem)',
+            fontSize: 'clamp(2.8rem, 7.5vw, 5.4rem)',
             fontWeight: 400,
             color: '#ffffff',
             lineHeight: 0.94,

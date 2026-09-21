@@ -68,7 +68,11 @@ export const CharacterCanvas: React.FC<CharacterCanvasProps> = ({
   const lastFpsTimeRef = useRef(performance.now());
   const currentFpsRef = useRef(60);
 
-  // Instant preloading: Center frame first, then circular stream in background
+  // Track last interaction time for subtle ambient idle gaze
+  const lastInteractionTimeRef = useRef<number>(performance.now());
+  const lastTelemetrySendRef = useRef<number>(0);
+
+  // Progressive frame loading: Center frame first, then cardinal keyframes, then stream remaining
   useEffect(() => {
     let loaded = 0;
     const totalToLoad = TOTAL_FRAMES + 1;
@@ -87,31 +91,53 @@ export const CharacterCanvas: React.FC<CharacterCanvasProps> = ({
       console.warn('Failed to load center.webp');
     };
 
-    // 2. Load 64 circular frames in background
+    // 2. Load 8 cardinal directions first for rapid compass tracking (0, 8, 16, 24, 32, 40, 48, 56)
+    const cardinalIndices = [0, 8, 16, 24, 32, 40, 48, 56];
+    const secondaryIndices: number[] = [];
     for (let i = 0; i < TOTAL_FRAMES; i++) {
+      if (!cardinalIndices.includes(i)) secondaryIndices.push(i);
+    }
+
+    const loadSingleFrame = (idx: number) => {
       const img = new Image();
-      const numStr = i.toString().padStart(2, '0');
+      const numStr = idx.toString().padStart(2, '0');
       img.src = `/frames/frame_${numStr}.webp`;
       img.onload = () => {
-        framesRef.current[i] = img;
+        framesRef.current[idx] = img;
         loaded += 1;
         setLoadProgress(Math.round((loaded / totalToLoad) * 100));
       };
       img.onerror = () => {
-        console.warn(`Failed to load frame_${numStr}.webp`);
         loaded += 1;
         setLoadProgress(Math.round((loaded / totalToLoad) * 100));
       };
-    }
+    };
+
+    // Load cardinals immediately
+    cardinalIndices.forEach(loadSingleFrame);
+
+    // Stream remaining frames in progressive batches with tiny timeouts to yield main thread
+    let batchIdx = 0;
+    const BATCH_SIZE = 4;
+    const streamNextBatch = () => {
+      if (batchIdx >= secondaryIndices.length) return;
+      const batch = secondaryIndices.slice(batchIdx, batchIdx + BATCH_SIZE);
+      batch.forEach(loadSingleFrame);
+      batchIdx += BATCH_SIZE;
+      setTimeout(streamNextBatch, 35);
+    };
+
+    const timer = setTimeout(streamNextBatch, 60);
+    return () => clearTimeout(timer);
   }, []);
 
-  // Window resize handler
+  // Window resize handler: Cap DPR to 2 for battery efficiency and 60-120 FPS silky smoothness
   const updateDimensions = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     canvas.width = width * dpr;
     canvas.height = height * dpr;
@@ -125,17 +151,36 @@ export const CharacterCanvas: React.FC<CharacterCanvasProps> = ({
     return () => window.removeEventListener('resize', updateDimensions);
   }, [updateDimensions]);
 
-  // Mouse & touch move listener
+  // Pointer & touch move listeners for smooth tracking across all mobile, tablet, and desktop devices
   useEffect(() => {
     const handlePointerMove = (e: PointerEvent) => {
       mousePosRef.current = { x: e.clientX, y: e.clientY };
+      lastInteractionTimeRef.current = performance.now();
+    };
+
+    const handlePointerDown = (e: PointerEvent) => {
+      mousePosRef.current = { x: e.clientX, y: e.clientY };
+      lastInteractionTimeRef.current = performance.now();
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches && e.touches.length > 0) {
+        mousePosRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        lastInteractionTimeRef.current = performance.now();
+      }
     };
 
     window.addEventListener('pointermove', handlePointerMove, { passive: true });
-    return () => window.removeEventListener('pointermove', handlePointerMove);
+    window.addEventListener('pointerdown', handlePointerDown, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('pointerdown', handlePointerDown);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
   }, []);
 
-  // Main 60 FPS Animation & Render Loop
+  // Main 60-120 FPS Animation & Render Loop
   useEffect(() => {
     let animationId: number;
     let prevActiveFrame: number | 'CENTER' = 0;
@@ -159,7 +204,7 @@ export const CharacterCanvas: React.FC<CharacterCanvasProps> = ({
       const ctx = canvas.getContext('2d', { alpha: false });
       if (!ctx) return;
 
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const viewW = canvas.width / dpr;
       const viewH = canvas.height / dpr;
 
@@ -173,33 +218,68 @@ export const CharacterCanvas: React.FC<CharacterCanvasProps> = ({
       }
 
       // Calculate destination dimensions for 16:9 character frame
-      // Negative space (headroom): ~82% height on desktop, ~88% on mobile
       const sourceAspect = 1920 / 1080;
-      const headroomFactor = viewW < 768 ? 0.88 : 0.82;
-      let destH = viewH * headroomFactor;
-      let destW = destH * sourceAspect;
+      const isMobile = viewW < 768;
+      const isTablet = viewW >= 768 && viewW < 1024;
+      let destW: number;
+      let destH: number;
+      let destX: number;
+      let destY: number;
 
-      // Ensure minimum width on wide screens so shoulders remain proportional
-      const minW = Math.min(viewW, 1400) * 0.70;
-      if (destW < minW) {
-        destW = minW;
+      if (isMobile) {
+        // Mobile portrait: Scale character so head & shoulders sit naturally in the upper 45% of viewport
+        destW = Math.max(viewW * 1.35, Math.min(viewW * 1.6, 620));
         destH = destW / sourceAspect;
-      }
+        destX = (viewW - destW) / 2;
+        // Position character face gracefully in the upper 30-33% of viewport
+        const targetFaceY = Math.max(180, Math.min(viewH * 0.32, 270));
+        destY = targetFaceY - destH * FACE_NORM_Y;
+      } else if (isTablet) {
+        // Tablet: balanced framing leaving room for hero text on left
+        const headroomFactor = 0.78;
+        destH = viewH * headroomFactor;
+        destW = destH * sourceAspect;
+        destX = (viewW - destW) / 2 + viewW * 0.06;
+        destY = viewH - destH;
+      } else {
+        // Desktop: luxury cinematic bottom-anchored frame
+        const headroomFactor = 0.82;
+        destH = viewH * headroomFactor;
+        destW = destH * sourceAspect;
 
-      // Center horizontally and anchor to bottom (leaving ~18% negative space above the head)
-      const destX = (viewW - destW) / 2;
-      const destY = viewH - destH;
+        const minW = Math.min(viewW, 1400) * 0.70;
+        if (destW < minW) {
+          destW = minW;
+          destH = destW / sourceAspect;
+        }
+
+        destX = (viewW - destW) / 2;
+        destY = viewH - destH;
+      }
 
       // Calculate screen coordinate of the character's face center
       const faceX = destX + destW * FACE_NORM_X;
       const faceY = destY + destH * FACE_NORM_Y;
       faceScreenPosRef.current = { x: faceX, y: faceY };
 
+      // Organic ambient gaze when idle (keeps the character alive and dynamic when not touching/moving)
+      const now = performance.now();
+      const idleElapsed = now - lastInteractionTimeRef.current;
+      if (idleElapsed > 2200) {
+        const t = now * 0.0009;
+        const breathX = Math.sin(t * 1.1) * 60 + Math.cos(t * 0.35) * 40;
+        const breathY = Math.cos(t * 0.8) * 35 + Math.sin(t * 0.45) * 20;
+        mousePosRef.current = {
+          x: faceX + breathX,
+          y: faceY + breathY,
+        };
+      }
+
       if (onFaceCenterChange) {
         onFaceCenterChange({ x: faceX, y: faceY });
       }
 
-      // Vector from face center to cursor
+      // Vector from face center to target
       const dx = mousePosRef.current.x - faceX;
       const dy = mousePosRef.current.y - faceY;
       const dist = Math.hypot(dx, dy);
@@ -254,10 +334,24 @@ export const CharacterCanvas: React.FC<CharacterCanvasProps> = ({
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = 'high';
       ctx.drawImage(activeImage, destX, destY, destW, destH);
+
+      // On mobile screens, softly dissolve the bottom edge of the shirt seamlessly into the solid blue canvas
+      if (isMobile) {
+        const fadeStartY = destY + destH * 0.68;
+        const fadeHeight = destH * 0.32 + 4;
+        const grad = ctx.createLinearGradient(0, fadeStartY, 0, fadeStartY + fadeHeight);
+        grad.addColorStop(0, 'rgba(6, 15, 239, 0)');
+        grad.addColorStop(0.55, 'rgba(6, 15, 239, 0.75)');
+        grad.addColorStop(1, 'rgba(6, 15, 239, 1)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(destX - 10, fadeStartY, destW + 20, fadeHeight + Math.max(0, viewH - (fadeStartY + fadeHeight)));
+      }
+
       ctx.restore();
 
-      // Telemetry update
-      if (onTelemetryUpdate) {
+      // Throttled Telemetry Update (10 FPS / 100ms) to prevent React state re-render storm
+      if (onTelemetryUpdate && time - lastTelemetrySendRef.current >= 100) {
+        lastTelemetrySendRef.current = time;
         const currentDeg = Math.round((smoothed * 180) / Math.PI);
         const targetDeg = Math.round((targetRad * 180) / Math.PI);
         onTelemetryUpdate({

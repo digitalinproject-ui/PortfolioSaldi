@@ -40,27 +40,17 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
 
   return (
     <div
-      style={{
-        position: 'fixed',
-        bottom: '28px',
-        right: '32px',
-        zIndex: 40,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-        gap: '12px',
-        pointerEvents: 'none',
-      }}
+      className="telemetry-hud-container"
     >
       {/* Telemetry Panel */}
       {isOpen && (
         <div
-          className="glass-panel"
+          className="glass-panel telemetry-hud-panel"
           style={{
             pointerEvents: 'auto',
             borderRadius: '20px',
             padding: '20px 24px',
-            width: '320px',
+            width: 'min(320px, calc(100vw - 36px))',
             color: '#ffffff',
             display: 'flex',
             flexDirection: 'column',
@@ -340,10 +330,11 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
           audioEngine.playClick(1100);
           onToggle();
         }}
-        className="glass-pill"
+        className="glass-pill telemetry-hud-toggle-btn"
         style={{
           pointerEvents: 'auto',
           padding: '10px 18px',
+          minHeight: '44px',
           display: 'flex',
           alignItems: 'center',
           gap: '10px',

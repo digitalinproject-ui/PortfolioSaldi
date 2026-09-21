@@ -347,3 +347,78 @@ html, body {
     border-radius: 50% 50% 54% 46% / 46% 54% 46% 54%;
   }
 }
+
+/* Hero Mobile Scrim: subtle depth gradient ensuring 100% WCAG AA text contrast on mobile */
+.hero-mobile-scrim {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55vh;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(6, 15, 239, 0.96) 0%,
+    rgba(6, 15, 239, 0.85) 45%,
+    rgba(6, 15, 239, 0.35) 75%,
+    rgba(6, 15, 239, 0) 100%
+  );
+  z-index: 22;
+}
+
+/* Telemetry HUD Responsive Positioning */
+.telemetry-hud-container {
+  position: fixed;
+  bottom: 28px;
+  right: 32px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.telemetry-hud-toggle-btn {
+  order: 2;
+}
+
+.telemetry-hud-panel {
+  order: 1;
+}
+
+/* Mobile & Tablet Specific Breakpoints */
+@media (max-width: 767px) {
+  .hero-mobile-scrim {
+    display: block;
+  }
+
+  .hero-content-wrapper {
+    bottom: 20px !important;
+    left: 18px !important;
+    width: calc(100% - 36px) !important;
+    max-width: 100% !important;
+    gap: 8px !important;
+  }
+
+  .telemetry-hud-container {
+    top: 84px;
+    bottom: auto;
+    right: 16px;
+    gap: 8px;
+  }
+
+  .telemetry-hud-toggle-btn {
+    order: 1;
+    padding: 8px 14px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .telemetry-hud-panel {
+    order: 2;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+}
+
