@@ -1,0 +1,349 @@
+@font-face {
+  font-family: 'Dripdrop';
+  src: url('/font/Dripdrop.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Dripdrop Solid';
+  src: url('/font/Dripdrop Solid.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gusom';
+  src: url('/font/Gusom.woff2') format('woff2'),
+       url('/font/Gusom.woff') format('woff'),
+       url('/font/Gusom.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/font/PlusJakartaSans-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/font/PlusJakartaSans-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --bg-studio: #060fef;
+  --bg-studio-darker: #050cc4;
+  --color-white: #ffffff;
+  --color-white-90: rgba(255, 255, 255, 0.90);
+  --color-white-70: rgba(255, 255, 255, 0.70);
+  --color-white-40: rgba(255, 255, 255, 0.40);
+  --color-white-20: rgba(255, 255, 255, 0.20);
+  --color-white-10: rgba(255, 255, 255, 0.10);
+  --color-white-05: rgba(255, 255, 255, 0.05);
+  --color-accent-cyan: #00f0ff;
+  --color-accent-gold: #e8d08d;
+  --color-accent-amber: #ffaa40;
+
+  --font-name: 'Dripdrop', 'Dripdrop Solid', 'Gusom', cursive;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-editorial: 'Italiana', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: var(--bg-studio);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-studio);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Luxury custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-studio);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* Glassmorphic Luxury Container */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 50px rgba(0, 5, 80, 0.35);
+}
+
+.glass-panel-subtle {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.glass-pill:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+/* Typography styles */
+.font-name {
+  font-family: var(--font-name);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-cursive {
+  font-family: var(--font-name);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Subtle luxury grain overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Luxury button */
+.luxury-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: #ffffff;
+  color: #050eb0;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.35s var(--ease-out-expo);
+}
+
+.luxury-btn:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35), 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+.luxury-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 9999px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.35s var(--ease-out-expo);
+}
+
+.luxury-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Keyframe animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 30s linear infinite;
+}
+
+/* Custom Magnetic Cursor */
+@media (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor button,
+  body.has-custom-cursor a,
+  body.has-custom-cursor input,
+  body.has-custom-cursor select,
+  body.has-custom-cursor textarea,
+  body.has-custom-cursor [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* Liquid Cursor Aesthetics */
+.liquid-cursor-svg {
+  position: fixed;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.liquid-cursor-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  filter: url('#liquid-goo');
+}
+
+.liquid-droplet-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.95), 0 0 24px rgba(255, 255, 255, 0.4);
+  will-change: transform, width, height;
+  transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1), height 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.22s ease;
+}
+
+.liquid-droplet-main.is-hovering {
+  width: 46px;
+  height: 46px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.95), inset 0 0 8px rgba(6, 15, 239, 0.25);
+  animation: liquidMorph 3.5s ease-in-out infinite alternate;
+}
+
+.liquid-droplet-trail-1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  opacity: 0.92;
+}
+
+.liquid-droplet-trail-2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  opacity: 0.8;
+}
+
+/* Organic liquid bubble morph animation during hover */
+@keyframes liquidMorph {
+  0% {
+    border-radius: 46% 54% 60% 40% / 48% 42% 58% 52%;
+  }
+  33% {
+    border-radius: 56% 44% 46% 54% / 42% 56% 44% 58%;
+  }
+  66% {
+    border-radius: 42% 58% 38% 62% / 58% 40% 60% 42%;
+  }
+  100% {
+    border-radius: 50% 50% 54% 46% / 46% 54% 46% 54%;
+  }
+}
