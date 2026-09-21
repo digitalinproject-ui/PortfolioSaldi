@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { CharacterCanvas, TelemetryData } from './components/CharacterCanvas.tsx';
 import { Navigation } from './components/Navigation.tsx';
 import { HeroSection } from './components/HeroSection.tsx';
@@ -7,6 +7,7 @@ import { WorksDrawer } from './components/WorksDrawer.tsx';
 import { ContactModal } from './components/ContactModal.tsx';
 import { AboutModal } from './components/AboutModal.tsx';
 import { CustomCursor } from './components/CustomCursor.tsx';
+import { audioEngine } from './components/AudioEngine.ts';
 
 export const App: React.FC = () => {
   const [telemetry, setTelemetry] = useState<TelemetryData | null>(null);
@@ -18,6 +19,25 @@ export const App: React.FC = () => {
     x: window.innerWidth * 0.5,
     y: window.innerHeight * 0.38,
   });
+
+  // Permanently unlock Web Audio API on first mobile touch or click gesture
+  useEffect(() => {
+    const handleFirstGesture = () => {
+      audioEngine.unlock();
+    };
+
+    window.addEventListener('touchstart', handleFirstGesture, { once: true, passive: true });
+    window.addEventListener('touchend', handleFirstGesture, { once: true, passive: true });
+    window.addEventListener('pointerdown', handleFirstGesture, { once: true, passive: true });
+    window.addEventListener('click', handleFirstGesture, { once: true, passive: true });
+
+    return () => {
+      window.removeEventListener('touchstart', handleFirstGesture);
+      window.removeEventListener('touchend', handleFirstGesture);
+      window.removeEventListener('pointerdown', handleFirstGesture);
+      window.removeEventListener('click', handleFirstGesture);
+    };
+  }, []);
 
   const handleFaceCenterChange = useCallback((pos: { x: number; y: number }) => {
     faceCenterPosRef.current = pos;

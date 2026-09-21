@@ -7,16 +7,35 @@ class AudioEngine {
   private ctx: AudioContext | null = null;
   public enabled: boolean = true;
 
-  private initContext() {
-    if (!this.ctx && typeof window !== 'undefined') {
-      const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      if (AudioContextClass) {
-        this.ctx = new AudioContextClass();
+  public unlock() {
+    if (typeof window === 'undefined') return;
+    try {
+      if (!this.ctx) {
+        const AudioContextClass =
+          window.AudioContext ||
+          (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+        if (AudioContextClass) {
+          this.ctx = new AudioContextClass();
+        }
       }
+      if (this.ctx) {
+        if (this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+        // Play silent 1-sample buffer on user gesture to permanently unlock iOS audio pipeline
+        const buffer = this.ctx.createBuffer(1, 1, 22050);
+        const source = this.ctx.createBufferSource();
+        source.buffer = buffer;
+        source.connect(this.ctx.destination);
+        source.start(0);
+      }
+    } catch {
+      // Ignore
     }
-    if (this.ctx && this.ctx.state === 'suspended') {
-      this.ctx.resume();
-    }
+  }
+
+  private initContext() {
+    this.unlock();
   }
 
   /**
