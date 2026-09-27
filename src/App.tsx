@@ -73,7 +73,9 @@ export const App: React.FC = () => {
       style={{
         position: 'relative',
         width: '100vw',
-        minHeight: '100vh',
+        height: '100dvh',
+        minHeight: '100dvh',
+        maxHeight: '100dvh',
         backgroundColor: '#eef2f2',
         overflow: 'hidden',
         touchAction: 'none',

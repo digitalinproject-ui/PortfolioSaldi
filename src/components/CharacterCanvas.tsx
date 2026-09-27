@@ -393,7 +393,7 @@ export const CharacterCanvas: React.FC<CharacterCanvasProps> = ({
         position: 'absolute',
         inset: 0,
         width: '100vw',
-        height: '100vh',
+        height: '100dvh',
         overflow: 'hidden',
         backgroundColor: BG_COLOR,
         pointerEvents: 'none',
@@ -404,7 +404,7 @@ export const CharacterCanvas: React.FC<CharacterCanvasProps> = ({
         style={{
           display: 'block',
           width: '100vw',
-          height: '100vh',
+          height: '100dvh',
           objectFit: 'cover',
           backgroundColor: BG_COLOR,
         }}

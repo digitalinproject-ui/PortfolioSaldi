@@ -28,7 +28,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       style={{
         position: 'relative',
         width: '100%',
-        minHeight: '100vh',
+        height: '100dvh',
+        minHeight: '100dvh',
+        maxHeight: '100dvh',
         pointerEvents: 'none',
         zIndex: 20,
       }}
@@ -54,7 +56,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       >
         {/* 1. Kicker / Greeting in clean spaced Plus Jakarta Sans */}
         <div
-          className="font-sans"
+          className="font-sans hero-kicker"
           style={{
             fontSize: '0.85rem',
             fontWeight: 600,
@@ -68,7 +70,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* 2. Primary Focal Point: 2-line Name in Dripdrop font */}
         <h1
-          className="font-name"
+          className="font-name hero-name"
           style={{
             fontSize: 'clamp(2.8rem, 7.5vw, 5.4rem)',
             fontWeight: 400,
@@ -89,6 +91,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* 3. Role & Experience Badge / Subtitle */}
         <div
+          className="hero-role-wrapper"
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -98,7 +101,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           }}
         >
           <div
-            className="font-sans"
+            className="font-sans hero-role-title"
             style={{
               fontSize: '1.02rem',
               fontWeight: 700,
@@ -111,7 +114,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           <div
-            className="font-sans"
+            className="font-sans hero-badge"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -129,9 +132,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
 
-        {/* 4. Compact 3-line bio (max-width ~350px) */}
+        {/* 4. Compact 2-line bio */}
         <p
-          className="font-sans"
+          className="font-sans hero-bio"
           style={{
             maxWidth: '350px',
             fontSize: '0.9rem',
@@ -140,11 +143,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             margin: '2px 0 8px 0',
           }}
         >
-          Crafting compelling digital content, strategic corporate visual communication, and customer-centric brand experiences that command attention.
+          Crafting strategic corporate visuals, digital content, and brand experiences that command attention.
         </p>
 
         {/* 5. Two stylish pill buttons */}
         <div
+          className="hero-buttons-wrapper"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -157,6 +161,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <button
             onClick={handleResume}
             onMouseEnter={() => audioEngine.playClick(1500)}
+            className="hero-btn-primary"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -194,6 +199,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               onOpenContact();
             }}
             onMouseEnter={() => audioEngine.playClick(1500)}
+            className="hero-btn-secondary"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
