@@ -76,6 +76,7 @@ export const App: React.FC = () => {
         minHeight: '100vh',
         backgroundColor: '#eef2f2',
         overflow: 'hidden',
+        touchAction: 'none',
       }}
     >
       {/* Custom Glowing Magnetic Cursor */}

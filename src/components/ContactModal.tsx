@@ -94,6 +94,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
           position: 'relative',
           maxHeight: '92vh',
           overflowY: 'auto',
+          touchAction: 'pan-y',
+          WebkitOverflowScrolling: 'touch',
         }}
       >
         <button

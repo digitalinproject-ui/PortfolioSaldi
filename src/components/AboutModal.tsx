@@ -39,6 +39,8 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
           position: 'relative',
           maxHeight: '90vh',
           overflowY: 'auto',
+          touchAction: 'pan-y',
+          WebkitOverflowScrolling: 'touch',
         }}
       >
         <button

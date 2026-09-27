@@ -151,31 +151,42 @@ export const CharacterCanvas: React.FC<CharacterCanvasProps> = ({
     return () => window.removeEventListener('resize', updateDimensions);
   }, [updateDimensions]);
 
-  // Pointer & touch move listeners for smooth tracking across all mobile, tablet, and desktop devices
+  // Pointer & touch move listeners for instantaneous tracking across all mobile, tablet, and desktop devices
   useEffect(() => {
-    const handlePointerMove = (e: PointerEvent) => {
-      mousePosRef.current = { x: e.clientX, y: e.clientY };
+    const updateTrackingPoint = (clientX: number, clientY: number) => {
+      mousePosRef.current = { x: clientX, y: clientY };
       lastInteractionTimeRef.current = performance.now();
     };
 
+    const handlePointerMove = (e: PointerEvent) => {
+      updateTrackingPoint(e.clientX, e.clientY);
+    };
+
     const handlePointerDown = (e: PointerEvent) => {
-      mousePosRef.current = { x: e.clientX, y: e.clientY };
-      lastInteractionTimeRef.current = performance.now();
+      updateTrackingPoint(e.clientX, e.clientY);
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches && e.touches.length > 0) {
+        updateTrackingPoint(e.touches[0].clientX, e.touches[0].clientY);
+      }
     };
 
     const handleTouchMove = (e: TouchEvent) => {
       if (e.touches && e.touches.length > 0) {
-        mousePosRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        lastInteractionTimeRef.current = performance.now();
+        updateTrackingPoint(e.touches[0].clientX, e.touches[0].clientY);
       }
     };
 
     window.addEventListener('pointermove', handlePointerMove, { passive: true });
     window.addEventListener('pointerdown', handlePointerDown, { passive: true });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
+
     return () => {
       window.removeEventListener('pointermove', handlePointerMove);
       window.removeEventListener('pointerdown', handlePointerDown);
+      window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchmove', handleTouchMove);
     };
   }, []);

@@ -175,6 +175,8 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
           borderLeft: '1px solid rgba(10, 10, 12, 0.1)',
           padding: 'clamp(24px, 4vw, 44px)',
           overflowY: 'auto',
+          touchAction: 'pan-y',
+          WebkitOverflowScrolling: 'touch',
           display: 'flex',
           flexDirection: 'column',
           gap: '32px',
