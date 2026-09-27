@@ -159,7 +159,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
         zIndex: 60,
         display: 'flex',
         justifyContent: 'flex-end',
-        backgroundColor: 'rgba(6, 15, 239, 0.4)',
+        backgroundColor: 'rgba(10, 10, 12, 0.45)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         animation: 'fadeIn 0.3s ease-out',
@@ -171,14 +171,14 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
           width: '100%',
           maxWidth: '680px',
           height: '100%',
-          backgroundColor: 'rgba(4, 10, 180, 0.94)',
-          borderLeft: '1px solid rgba(255, 255, 255, 0.16)',
+          backgroundColor: '#ffffff',
+          borderLeft: '1px solid rgba(10, 10, 12, 0.1)',
           padding: 'clamp(24px, 4vw, 44px)',
           overflowY: 'auto',
           display: 'flex',
           flexDirection: 'column',
           gap: '32px',
-          boxShadow: '-20px 0 60px rgba(0, 5, 80, 0.75)',
+          boxShadow: '-20px 0 60px rgba(10, 10, 12, 0.15)',
           fontFamily: 'var(--font-sans)',
         }}
       >
@@ -188,7 +188,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
             display: 'flex',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.14)',
+            borderBottom: '1px solid rgba(10, 10, 12, 0.08)',
             paddingBottom: '20px',
             gap: '16px',
           }}
@@ -199,8 +199,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                 fontSize: '0.78rem',
                 fontWeight: 700,
                 letterSpacing: '0.18em',
-                color: '#ffffff',
-                opacity: 0.9,
+                color: 'rgba(10, 10, 12, 0.6)',
                 textTransform: 'uppercase',
                 marginBottom: '6px',
               }}
@@ -212,7 +211,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                 fontSize: 'clamp(1.5rem, 2.4vw, 2rem)',
                 fontWeight: 700,
                 letterSpacing: '0.02em',
-                color: '#ffffff',
+                color: '#0a0a0c',
                 margin: 0,
                 lineHeight: 1.15,
               }}
@@ -223,7 +222,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
               style={{
                 margin: '6px 0 0 0',
                 fontSize: '0.86rem',
-                color: 'rgba(255, 255, 255, 0.75)',
+                color: '#4a5260',
                 lineHeight: 1.5,
               }}
             >
@@ -244,19 +243,19 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#ffffff',
-              background: 'rgba(255, 255, 255, 0.1)',
-              border: '1px solid rgba(255, 255, 255, 0.22)',
+              color: '#0a0a0c',
+              background: 'rgba(10, 10, 12, 0.05)',
+              border: '1px solid rgba(10, 10, 12, 0.1)',
               borderRadius: '50%',
               cursor: 'pointer',
               transition: 'all 0.2s ease',
             }}
             onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.22)';
+              e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.1)';
               e.currentTarget.style.transform = 'scale(1.05)';
             }}
             onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+              e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.05)';
               e.currentTarget.style.transform = 'scale(1)';
             }}
           >
@@ -294,12 +293,12 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                   letterSpacing: '0.03em',
                   fontFamily: 'var(--font-sans)',
                   border: isActive
-                    ? '1px solid #ffffff'
-                    : '1px solid rgba(255, 255, 255, 0.18)',
+                    ? '1px solid #0a0a0c'
+                    : '1px solid rgba(10, 10, 12, 0.12)',
                   backgroundColor: isActive
-                    ? '#ffffff'
-                    : 'rgba(255, 255, 255, 0.06)',
-                  color: isActive ? '#060fef' : 'rgba(255, 255, 255, 0.85)',
+                    ? '#0a0a0c'
+                    : 'rgba(10, 10, 12, 0.04)',
+                  color: isActive ? '#ffffff' : 'rgba(10, 10, 12, 0.75)',
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
                 }}
@@ -322,17 +321,17 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                   alignItems: 'center',
                   gap: '10px',
                   paddingBottom: '8px',
-                  borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
+                  borderBottom: '1px solid rgba(10, 10, 12, 0.08)',
                 }}
               >
-                <Briefcase size={17} color="#ffffff" />
+                <Briefcase size={17} color="#0a0a0c" />
                 <h3
                   style={{
                     fontSize: '1rem',
                     fontWeight: 700,
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: '#ffffff',
+                    color: '#0a0a0c',
                     margin: 0,
                   }}
                 >
@@ -349,31 +348,31 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                       padding: '24px',
                       borderRadius: '16px',
                       background: item.isHighlighted
-                        ? 'rgba(255, 255, 255, 0.09)'
-                        : 'rgba(255, 255, 255, 0.05)',
+                        ? 'rgba(10, 10, 12, 0.035)'
+                        : 'rgba(10, 10, 12, 0.02)',
                       border: item.isHighlighted
-                        ? '1px solid rgba(255, 255, 255, 0.28)'
-                        : '1px solid rgba(255, 255, 255, 0.12)',
+                        ? '1px solid rgba(10, 10, 12, 0.16)'
+                        : '1px solid rgba(10, 10, 12, 0.08)',
                       display: 'flex',
                       flexDirection: 'column',
                       gap: '14px',
                       transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
                       boxShadow: item.isHighlighted
-                        ? '0 10px 30px rgba(0, 5, 80, 0.25)'
+                        ? '0 10px 30px rgba(10, 10, 12, 0.04)'
                         : 'none',
                     }}
                     onMouseOver={(e) => {
-                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.12)';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                      e.currentTarget.style.background = 'rgba(10, 10, 12, 0.05)';
+                      e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.25)';
                       e.currentTarget.style.transform = 'translateY(-2px)';
                     }}
                     onMouseOut={(e) => {
                       e.currentTarget.style.background = item.isHighlighted
-                        ? 'rgba(255, 255, 255, 0.09)'
-                        : 'rgba(255, 255, 255, 0.05)';
+                        ? 'rgba(10, 10, 12, 0.035)'
+                        : 'rgba(10, 10, 12, 0.02)';
                       e.currentTarget.style.borderColor = item.isHighlighted
-                        ? 'rgba(255, 255, 255, 0.28)'
-                        : 'rgba(255, 255, 255, 0.12)';
+                        ? 'rgba(10, 10, 12, 0.16)'
+                        : 'rgba(10, 10, 12, 0.08)';
                       e.currentTarget.style.transform = 'translateY(0)';
                     }}
                   >
@@ -389,7 +388,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                         style={{
                           fontSize: '0.8rem',
                           fontWeight: 600,
-                          color: 'rgba(255, 255, 255, 0.7)',
+                          color: '#5e6673',
                           letterSpacing: '0.04em',
                         }}
                       >
@@ -402,11 +401,11 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                             fontWeight: 700,
                             letterSpacing: '0.06em',
                             textTransform: 'uppercase',
-                            color: '#ffffff',
-                            backgroundColor: 'rgba(255, 255, 255, 0.14)',
+                            color: '#0a0a0c',
+                            backgroundColor: 'rgba(10, 10, 12, 0.06)',
                             padding: '3px 10px',
                             borderRadius: '9999px',
-                            border: '1px solid rgba(255, 255, 255, 0.28)',
+                            border: '1px solid rgba(10, 10, 12, 0.14)',
                           }}
                         >
                           Current Focus
@@ -421,7 +420,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                           fontSize: '1.25rem',
                           fontWeight: 700,
                           letterSpacing: '0.02em',
-                          color: '#ffffff',
+                          color: '#0a0a0c',
                           margin: 0,
                           lineHeight: 1.25,
                         }}
@@ -435,7 +434,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                       style={{
                         fontSize: '0.88rem',
                         lineHeight: 1.62,
-                        color: 'rgba(255, 255, 255, 0.85)',
+                        color: '#3d424a',
                         margin: 0,
                       }}
                     >
@@ -450,11 +449,11 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                           style={{
                             fontSize: '0.74rem',
                             fontWeight: 500,
-                            background: 'rgba(255, 255, 255, 0.08)',
+                            background: 'rgba(10, 10, 12, 0.04)',
                             padding: '4px 11px',
                             borderRadius: '9999px',
-                            color: 'rgba(255, 255, 255, 0.9)',
-                            border: '1px solid rgba(255, 255, 255, 0.14)',
+                            color: '#0a0a0c',
+                            border: '1px solid rgba(10, 10, 12, 0.08)',
                           }}
                         >
                           {tag}
@@ -469,8 +468,8 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                           marginTop: '4px',
                           padding: '14px 16px',
                           borderRadius: '12px',
-                          background: 'rgba(255, 255, 255, 0.05)',
-                          border: '1px solid rgba(255, 255, 255, 0.14)',
+                          background: 'rgba(10, 10, 12, 0.025)',
+                          border: '1px solid rgba(10, 10, 12, 0.08)',
                           display: 'flex',
                           flexDirection: 'column',
                           gap: '10px',
@@ -482,8 +481,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                             fontWeight: 700,
                             letterSpacing: '0.12em',
                             textTransform: 'uppercase',
-                            color: '#ffffff',
-                            opacity: 0.9,
+                            color: 'rgba(10, 10, 12, 0.7)',
                             display: 'flex',
                             alignItems: 'center',
                             gap: '6px',
@@ -510,22 +508,22 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                                 gap: '6px',
                                 fontSize: '0.76rem',
                                 fontWeight: 600,
-                                color: '#ffffff',
-                                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                                color: '#0a0a0c',
+                                backgroundColor: 'rgba(10, 10, 12, 0.05)',
                                 padding: '5px 12px',
                                 borderRadius: '9999px',
-                                border: '1px solid rgba(255, 255, 255, 0.2)',
+                                border: '1px solid rgba(10, 10, 12, 0.12)',
                                 textDecoration: 'none',
                                 transition: 'all 0.2s ease',
                               }}
                               onMouseOver={(e) => {
-                                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.18)';
-                                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.45)';
+                                e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.1)';
+                                e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.3)';
                                 e.currentTarget.style.transform = 'translateY(-1px)';
                               }}
                               onMouseOut={(e) => {
-                                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
-                                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                                e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.05)';
+                                e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.12)';
                                 e.currentTarget.style.transform = 'translateY(0)';
                               }}
                             >
@@ -535,7 +533,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                                 <YouTubeIcon size={13} />
                               )}
                               <span>{media.title}</span>
-                              <ArrowUpRight size={12} color="rgba(255, 255, 255, 0.7)" />
+                              <ArrowUpRight size={12} color="rgba(10, 10, 12, 0.5)" />
                             </a>
                           ))}
                         </div>
@@ -556,17 +554,17 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                   alignItems: 'center',
                   gap: '10px',
                   paddingBottom: '8px',
-                  borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
+                  borderBottom: '1px solid rgba(10, 10, 12, 0.08)',
                 }}
               >
-                <Layers size={17} color="#ffffff" />
+                <Layers size={17} color="#0a0a0c" />
                 <h3
                   style={{
                     fontSize: '1rem',
                     fontWeight: 700,
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: '#ffffff',
+                    color: '#0a0a0c',
                     margin: 0,
                   }}
                 >
@@ -582,21 +580,21 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                     style={{
                       padding: '24px',
                       borderRadius: '16px',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(255, 255, 255, 0.14)',
+                      background: 'rgba(10, 10, 12, 0.02)',
+                      border: '1px solid rgba(10, 10, 12, 0.08)',
                       display: 'flex',
                       flexDirection: 'column',
                       gap: '14px',
                       transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
                     }}
                     onMouseOver={(e) => {
-                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.12)';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                      e.currentTarget.style.background = 'rgba(10, 10, 12, 0.05)';
+                      e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.25)';
                       e.currentTarget.style.transform = 'translateY(-2px)';
                     }}
                     onMouseOut={(e) => {
-                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.14)';
+                      e.currentTarget.style.background = 'rgba(10, 10, 12, 0.02)';
+                      e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.08)';
                       e.currentTarget.style.transform = 'translateY(0)';
                     }}
                   >
@@ -612,7 +610,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                         style={{
                           fontSize: '0.8rem',
                           fontWeight: 600,
-                          color: 'rgba(255, 255, 255, 0.7)',
+                          color: '#5e6673',
                           letterSpacing: '0.04em',
                         }}
                       >
@@ -622,11 +620,11 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                         style={{
                           fontSize: '0.72rem',
                           fontWeight: 600,
-                          color: '#ffffff',
-                          backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                          color: '#0a0a0c',
+                          backgroundColor: 'rgba(10, 10, 12, 0.05)',
                           padding: '3px 10px',
                           borderRadius: '9999px',
-                          border: '1px solid rgba(255, 255, 255, 0.24)',
+                          border: '1px solid rgba(10, 10, 12, 0.12)',
                         }}
                       >
                         {item.role}
@@ -648,7 +646,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                           fontSize: '1.25rem',
                           fontWeight: 700,
                           letterSpacing: '0.02em',
-                          color: '#ffffff',
+                          color: '#0a0a0c',
                           margin: 0,
                           lineHeight: 1.25,
                         }}
@@ -671,28 +669,28 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                             gap: '6px',
                             fontSize: '0.76rem',
                             fontWeight: 600,
-                            color: '#ffffff',
-                            backgroundColor: 'rgba(255, 255, 255, 0.09)',
+                            color: '#0a0a0c',
+                            backgroundColor: 'rgba(10, 10, 12, 0.05)',
                             padding: '4px 11px',
                             borderRadius: '9999px',
-                            border: '1px solid rgba(255, 255, 255, 0.22)',
+                            border: '1px solid rgba(10, 10, 12, 0.12)',
                             textDecoration: 'none',
                             transition: 'all 0.2s ease',
                           }}
                           onMouseOver={(e) => {
-                            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.18)';
-                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.45)';
+                            e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.1)';
+                            e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.3)';
                             e.currentTarget.style.transform = 'translateY(-1px)';
                           }}
                           onMouseOut={(e) => {
-                            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.09)';
-                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.22)';
+                            e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.05)';
+                            e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.12)';
                             e.currentTarget.style.transform = 'translateY(0)';
                           }}
                         >
                           <InstagramIcon size={13} />
                           <span>{item.instagramHandle}</span>
-                          <ArrowUpRight size={12} color="rgba(255, 255, 255, 0.7)" />
+                          <ArrowUpRight size={12} color="rgba(10, 10, 12, 0.5)" />
                         </a>
                       )}
                     </div>
@@ -702,7 +700,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                       style={{
                         fontSize: '0.88rem',
                         lineHeight: 1.62,
-                        color: 'rgba(255, 255, 255, 0.85)',
+                        color: '#3d424a',
                         margin: 0,
                       }}
                     >
@@ -717,11 +715,11 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                           style={{
                             fontSize: '0.74rem',
                             fontWeight: 500,
-                            background: 'rgba(255, 255, 255, 0.08)',
+                            background: 'rgba(10, 10, 12, 0.04)',
                             padding: '4px 11px',
                             borderRadius: '9999px',
-                            color: 'rgba(255, 255, 255, 0.9)',
-                            border: '1px solid rgba(255, 255, 255, 0.12)',
+                            color: '#0a0a0c',
+                            border: '1px solid rgba(10, 10, 12, 0.08)',
                           }}
                         >
                           {tag}
@@ -743,17 +741,17 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                   alignItems: 'center',
                   gap: '10px',
                   paddingBottom: '8px',
-                  borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
+                  borderBottom: '1px solid rgba(10, 10, 12, 0.08)',
                 }}
               >
-                <Wrench size={17} color="#ffffff" />
+                <Wrench size={17} color="#0a0a0c" />
                 <h3
                   style={{
                     fontSize: '1rem',
                     fontWeight: 700,
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: '#ffffff',
+                    color: '#0a0a0c',
                     margin: 0,
                   }}
                 >
@@ -773,8 +771,8 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                   style={{
                     padding: '22px',
                     borderRadius: '16px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    background: 'rgba(10, 10, 12, 0.02)',
+                    border: '1px solid rgba(10, 10, 12, 0.08)',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '12px',
@@ -784,7 +782,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                     style={{
                       fontSize: '0.85rem',
                       fontWeight: 700,
-                      color: '#ffffff',
+                      color: '#0a0a0c',
                       letterSpacing: '0.04em',
                       display: 'flex',
                       alignItems: 'center',
@@ -800,11 +798,11 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                         style={{
                           fontSize: '0.78rem',
                           fontWeight: 600,
-                          backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                          color: '#ffffff',
+                          backgroundColor: 'rgba(10, 10, 12, 0.05)',
+                          color: '#0a0a0c',
                           padding: '5px 12px',
                           borderRadius: '9999px',
-                          border: '1px solid rgba(255, 255, 255, 0.16)',
+                          border: '1px solid rgba(10, 10, 12, 0.1)',
                         }}
                       >
                         {tool}
@@ -818,8 +816,8 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                   style={{
                     padding: '22px',
                     borderRadius: '16px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    background: 'rgba(10, 10, 12, 0.02)',
+                    border: '1px solid rgba(10, 10, 12, 0.08)',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '12px',
@@ -829,7 +827,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                     style={{
                       fontSize: '0.85rem',
                       fontWeight: 700,
-                      color: '#ffffff',
+                      color: '#0a0a0c',
                       letterSpacing: '0.04em',
                       display: 'flex',
                       alignItems: 'center',
@@ -845,11 +843,11 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                         style={{
                           fontSize: '0.78rem',
                           fontWeight: 600,
-                          backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                          color: '#ffffff',
+                          backgroundColor: 'rgba(10, 10, 12, 0.05)',
+                          color: '#0a0a0c',
                           padding: '5px 12px',
                           borderRadius: '9999px',
-                          border: '1px solid rgba(255, 255, 255, 0.16)',
+                          border: '1px solid rgba(10, 10, 12, 0.1)',
                         }}
                       >
                         {skill}
@@ -863,8 +861,8 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                   style={{
                     padding: '22px',
                     borderRadius: '16px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    background: 'rgba(10, 10, 12, 0.02)',
+                    border: '1px solid rgba(10, 10, 12, 0.08)',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '12px',
@@ -875,7 +873,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                     style={{
                       fontSize: '0.85rem',
                       fontWeight: 700,
-                      color: '#ffffff',
+                      color: '#0a0a0c',
                       letterSpacing: '0.04em',
                       display: 'flex',
                       alignItems: 'center',
@@ -892,11 +890,11 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                         style={{
                           fontSize: '0.78rem',
                           fontWeight: 600,
-                          backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                          color: '#ffffff',
+                          backgroundColor: 'rgba(10, 10, 12, 0.06)',
+                          color: '#0a0a0c',
                           padding: '5px 12px',
                           borderRadius: '9999px',
-                          border: '1px solid rgba(255, 255, 255, 0.24)',
+                          border: '1px solid rgba(10, 10, 12, 0.12)',
                         }}
                       >
                         {tool}
@@ -915,9 +913,9 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
           style={{
             marginTop: 'auto',
             paddingTop: '20px',
-            borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+            borderTop: '1px solid rgba(10, 10, 12, 0.08)',
             fontSize: '0.8rem',
-            color: 'rgba(255, 255, 255, 0.65)',
+            color: 'rgba(10, 10, 12, 0.55)',
             textAlign: 'center',
             lineHeight: 1.5,
           }}

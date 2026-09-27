@@ -19,7 +19,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'rgba(6, 15, 239, 0.65)',
+        backgroundColor: 'rgba(10, 10, 12, 0.45)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
         padding: '24px',
@@ -33,9 +33,9 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
           maxWidth: '560px',
           borderRadius: '24px',
           padding: '40px',
-          backgroundColor: 'rgba(4, 10, 190, 0.95)',
-          border: '1px solid rgba(255, 255, 255, 0.22)',
-          boxShadow: '0 30px 80px rgba(0, 5, 80, 0.8)',
+          backgroundColor: '#ffffff',
+          border: '1px solid rgba(10, 10, 12, 0.1)',
+          boxShadow: '0 30px 80px rgba(10, 10, 12, 0.2)',
           position: 'relative',
           maxHeight: '90vh',
           overflowY: 'auto',
@@ -57,8 +57,9 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
-            color: '#ffffff',
-            border: '1px solid rgba(255, 255, 255, 0.25)',
+            color: '#0a0a0c',
+            background: 'rgba(10, 10, 12, 0.05)',
+            border: '1px solid rgba(10, 10, 12, 0.1)',
           }}
           aria-label="Close modal"
         >
@@ -66,14 +67,14 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
         </button>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-          <Sparkles size={16} color="#ffffff" />
+          <Sparkles size={16} color="#0a0a0c" />
           <span
             style={{
               fontSize: '0.75rem',
               fontWeight: 700,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
-              color: 'rgba(255, 255, 255, 0.8)',
+              color: 'rgba(10, 10, 12, 0.6)',
             }}
           >
             About Me
@@ -84,10 +85,9 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
           className="font-name"
           style={{
             fontSize: '3.2rem',
-            color: '#ffffff',
+            color: '#0a0a0c',
             lineHeight: 1.05,
             marginBottom: '8px',
-            filter: 'drop-shadow(0 2px 10px rgba(0, 0, 0, 0.35))',
           }}
         >
           Saldi Rahman
@@ -97,8 +97,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
           style={{
             fontSize: '0.95rem',
             fontWeight: 700,
-            color: '#ffffff',
-            opacity: 0.9,
+            color: '#0a0a0c',
             letterSpacing: '0.04em',
             marginBottom: '16px',
           }}
@@ -110,7 +109,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
           style={{
             fontSize: '0.92rem',
             lineHeight: 1.68,
-            color: 'rgba(255, 255, 255, 0.86)',
+            color: '#3d424a',
             marginBottom: '24px',
           }}
         >
@@ -121,34 +120,34 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '28px' }}>
           <div
             style={{
-              background: 'rgba(255, 255, 255, 0.06)',
+              background: 'rgba(10, 10, 12, 0.03)',
               borderRadius: '16px',
               padding: '18px',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
+              border: '1px solid rgba(10, 10, 12, 0.08)',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: '#ffffff' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: '#0a0a0c' }}>
               <Layout size={16} />
               <span style={{ fontSize: '0.88rem', fontWeight: 700 }}>Creative Practice</span>
             </div>
-            <div style={{ fontSize: '0.82rem', color: 'rgba(255, 255, 255, 0.78)', lineHeight: 1.6 }}>
+            <div style={{ fontSize: '0.82rem', color: '#4a5260', lineHeight: 1.6 }}>
               Visual Communication, Digital Content Creation, Corporate Campaigns, Brand Identity, Layout Design
             </div>
           </div>
 
           <div
             style={{
-              background: 'rgba(255, 255, 255, 0.06)',
+              background: 'rgba(10, 10, 12, 0.03)',
               borderRadius: '16px',
               padding: '18px',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
+              border: '1px solid rgba(10, 10, 12, 0.08)',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: '#ffffff' }}>
-              <Sparkles size={16} color="#ffffff" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: '#0a0a0c' }}>
+              <Sparkles size={16} color="#0a0a0c" />
               <span style={{ fontSize: '0.88rem', fontWeight: 700 }}>Tools & Emerging Tech</span>
             </div>
-            <div style={{ fontSize: '0.82rem', color: 'rgba(255, 255, 255, 0.78)', lineHeight: 1.6 }}>
+            <div style={{ fontSize: '0.82rem', color: '#4a5260', lineHeight: 1.6 }}>
               Adobe Photoshop, Figma, CapCut, Illustrator, AI-assisted Design & Prompt Workflows
             </div>
           </div>

@@ -22,7 +22,7 @@ interface CharacterCanvasProps {
 }
 
 const TOTAL_FRAMES = 64;
-const BG_COLOR = '#060fef';
+const BG_COLOR = '#eef2f2';
 const LERP_FACTOR = 0.14; // Silky smooth organic head & eye tracking
 const DEADZONE_RADIUS_FACTOR = 0.08; // Natural eye-contact deadzone radius
 
@@ -335,14 +335,14 @@ export const CharacterCanvas: React.FC<CharacterCanvasProps> = ({
       ctx.imageSmoothingQuality = 'high';
       ctx.drawImage(activeImage, destX, destY, destW, destH);
 
-      // On mobile screens, softly dissolve the bottom edge of the shirt seamlessly into the solid blue canvas
+      // On mobile screens, softly dissolve the bottom edge of the shirt seamlessly into the solid studio white canvas
       if (isMobile) {
         const fadeStartY = destY + destH * 0.68;
         const fadeHeight = destH * 0.32 + 4;
         const grad = ctx.createLinearGradient(0, fadeStartY, 0, fadeStartY + fadeHeight);
-        grad.addColorStop(0, 'rgba(6, 15, 239, 0)');
-        grad.addColorStop(0.55, 'rgba(6, 15, 239, 0.75)');
-        grad.addColorStop(1, 'rgba(6, 15, 239, 1)');
+        grad.addColorStop(0, 'rgba(238, 242, 242, 0)');
+        grad.addColorStop(0.55, 'rgba(238, 242, 242, 0.75)');
+        grad.addColorStop(1, 'rgba(238, 242, 242, 1)');
         ctx.fillStyle = grad;
         ctx.fillRect(destX - 10, fadeStartY, destW + 20, fadeHeight + Math.max(0, viewH - (fadeStartY + fadeHeight)));
       }

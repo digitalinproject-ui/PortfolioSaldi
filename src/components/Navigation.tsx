@@ -47,12 +47,12 @@ export const Navigation: React.FC<NavigationProps> = ({
           alignItems: 'center',
           gap: '4px',
           padding: '5px 8px',
-          background: 'rgba(255, 255, 255, 0.08)',
+          background: 'rgba(255, 255, 255, 0.82)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
+          border: '1px solid rgba(10, 10, 12, 0.09)',
           borderRadius: '9999px',
-          boxShadow: '0 12px 36px rgba(0, 5, 80, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25)',
+          boxShadow: '0 10px 30px rgba(10, 10, 12, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
         }}
       >
         {navItems.map((item) => (
@@ -66,7 +66,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#ffffff',
+              color: '#0a0a0c',
               fontFamily: 'var(--font-sans)',
               fontSize: '0.84rem',
               fontWeight: 600,
@@ -77,7 +77,7 @@ export const Navigation: React.FC<NavigationProps> = ({
               transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
             onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.16)';
+              e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.06)';
               e.currentTarget.style.transform = 'translateY(-1px)';
             }}
             onMouseOut={(e) => {
@@ -94,7 +94,7 @@ export const Navigation: React.FC<NavigationProps> = ({
           style={{
             width: '1px',
             height: '18px',
-            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+            backgroundColor: 'rgba(10, 10, 12, 0.12)',
             margin: '0 4px',
           }}
         />
@@ -107,7 +107,7 @@ export const Navigation: React.FC<NavigationProps> = ({
           style={{
             background: 'transparent',
             border: 'none',
-            color: soundEnabled ? '#ffffff' : 'rgba(255, 255, 255, 0.4)',
+            color: soundEnabled ? '#0a0a0c' : 'rgba(10, 10, 12, 0.35)',
             padding: '8px',
             borderRadius: '50%',
             cursor: 'pointer',
@@ -117,7 +117,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             transition: 'all 0.25s ease',
           }}
           onMouseOver={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.16)';
+            e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.06)';
           }}
           onMouseOut={(e) => {
             e.currentTarget.style.backgroundColor = 'transparent';

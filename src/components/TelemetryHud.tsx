@@ -51,12 +51,12 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
             borderRadius: '20px',
             padding: '20px 24px',
             width: 'min(320px, calc(100vw - 36px))',
-            color: '#ffffff',
+            color: '#0a0a0c',
             display: 'flex',
             flexDirection: 'column',
             gap: '16px',
-            boxShadow: '0 25px 60px rgba(0, 10, 80, 0.5)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
+            boxShadow: '0 20px 50px rgba(10, 10, 12, 0.1)',
+            border: '1px solid rgba(10, 10, 12, 0.1)',
           }}
         >
           {/* Header */}
@@ -65,12 +65,12 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
+              borderBottom: '1px solid rgba(10, 10, 12, 0.08)',
               paddingBottom: '12px',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Cpu size={16} color="#00f0ff" />
+              <Cpu size={16} color="#0a0a0c" />
               <span
                 className="font-display"
                 style={{
@@ -78,6 +78,7 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
                   fontWeight: 700,
                   letterSpacing: '0.15em',
                   textTransform: 'uppercase',
+                  color: '#0a0a0c',
                 }}
               >
                 Neural Telemetry
@@ -89,13 +90,14 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                background: 'rgba(0, 240, 255, 0.12)',
-                border: '1px solid rgba(0, 240, 255, 0.3)',
+                background: 'rgba(10, 10, 12, 0.05)',
+                border: '1px solid rgba(10, 10, 12, 0.12)',
                 padding: '3px 8px',
                 borderRadius: '999px',
                 fontSize: '0.7rem',
                 fontFamily: 'var(--font-mono)',
-                color: '#00f0ff',
+                color: '#0a0a0c',
+                fontWeight: 600,
               }}
             >
               <Activity size={12} />
@@ -119,11 +121,11 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
                 width: '74px',
                 height: '74px',
                 borderRadius: '50%',
-                border: '1px dashed rgba(255, 255, 255, 0.25)',
+                border: '1px dashed rgba(10, 10, 12, 0.25)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: 'rgba(255, 255, 255, 0.03)',
+                background: 'rgba(10, 10, 12, 0.02)',
               }}
             >
               {/* Compass Needle (rotated by current smoothed angle) */}
@@ -132,13 +134,13 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
                   position: 'absolute',
                   width: '2px',
                   height: '32px',
-                  backgroundColor: isDeadzone ? '#e8d08d' : '#00f0ff',
+                  backgroundColor: isDeadzone ? '#c49a3c' : '#0a0a0c',
                   transformOrigin: 'bottom center',
                   transform: `translateY(-16px) rotate(${currentAngleDeg + 90}deg)`,
                   transition: 'transform 0.05s linear',
                   boxShadow: isDeadzone
-                    ? '0 0 10px #e8d08d'
-                    : '0 0 10px #00f0ff',
+                    ? '0 0 8px rgba(196, 154, 60, 0.4)'
+                    : '0 0 6px rgba(10, 10, 12, 0.2)',
                 }}
               >
                 <div
@@ -149,7 +151,7 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
                     width: '8px',
                     height: '8px',
                     borderRadius: '50%',
-                    backgroundColor: isDeadzone ? '#e8d08d' : '#00f0ff',
+                    backgroundColor: isDeadzone ? '#c49a3c' : '#0a0a0c',
                   }}
                 />
               </div>
@@ -160,7 +162,7 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
                   width: '10px',
                   height: '10px',
                   borderRadius: '50%',
-                  backgroundColor: '#ffffff',
+                  backgroundColor: '#0a0a0c',
                   zIndex: 2,
                 }}
               />
@@ -175,25 +177,26 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
                 gap: '6px',
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.72rem',
+                color: '#0a0a0c',
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ opacity: 0.6 }}>AZIMUTH</span>
-                <span style={{ color: '#00f0ff', fontWeight: 600 }}>
+                <span style={{ opacity: 0.65 }}>AZIMUTH</span>
+                <span style={{ fontWeight: 600 }}>
                   {currentAngleDeg}°
                 </span>
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ opacity: 0.6 }}>FRAME</span>
-                <span style={{ color: '#ffffff', fontWeight: 600 }}>
+                <span style={{ opacity: 0.65 }}>FRAME</span>
+                <span style={{ fontWeight: 600 }}>
                   {activeFrame === 'CENTER' ? 'CENTER (239)' : `#${activeFrame} / 63`}
                 </span>
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ opacity: 0.6 }}>DISTANCE</span>
-                <span>
+                <span style={{ opacity: 0.65 }}>DISTANCE</span>
+                <span style={{ fontWeight: 600 }}>
                   {distancePx}px / {deadzoneRadiusPx}px
                 </span>
               </div>
@@ -209,25 +212,25 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
               alignItems: 'center',
               justifyContent: 'space-between',
               backgroundColor: isDeadzone
-                ? 'rgba(232, 208, 141, 0.18)'
-                : 'rgba(255, 255, 255, 0.05)',
+                ? 'rgba(196, 154, 60, 0.1)'
+                : 'rgba(10, 10, 12, 0.04)',
               border: isDeadzone
-                ? '1px solid rgba(232, 208, 141, 0.45)'
-                : '1px solid rgba(255, 255, 255, 0.1)',
+                ? '1px solid rgba(196, 154, 60, 0.35)'
+                : '1px solid rgba(10, 10, 12, 0.08)',
               transition: 'all 0.25s ease',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Eye
                 size={15}
-                color={isDeadzone ? '#e8d08d' : 'rgba(255, 255, 255, 0.6)'}
+                color={isDeadzone ? '#a37c26' : 'rgba(10, 10, 12, 0.6)'}
               />
               <span
                 style={{
                   fontSize: '0.72rem',
                   fontFamily: 'var(--font-mono)',
                   letterSpacing: '0.08em',
-                  color: isDeadzone ? '#e8d08d' : 'rgba(255, 255, 255, 0.75)',
+                  color: isDeadzone ? '#a37c26' : 'rgba(10, 10, 12, 0.75)',
                   fontWeight: isDeadzone ? 700 : 500,
                 }}
               >
@@ -240,8 +243,8 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
                 width: '6px',
                 height: '6px',
                 borderRadius: '50%',
-                backgroundColor: isDeadzone ? '#e8d08d' : '#00f0ff',
-                boxShadow: isDeadzone ? '0 0 8px #e8d08d' : '0 0 8px #00f0ff',
+                backgroundColor: isDeadzone ? '#c49a3c' : '#0a0a0c',
+                boxShadow: isDeadzone ? '0 0 8px rgba(196, 154, 60, 0.5)' : '0 0 6px rgba(10, 10, 12, 0.3)',
               }}
             />
           </div>
@@ -253,7 +256,7 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
                 fontSize: '0.68rem',
                 fontFamily: 'var(--font-mono)',
                 letterSpacing: '0.12em',
-                color: 'rgba(255, 255, 255, 0.5)',
+                color: 'rgba(10, 10, 12, 0.55)',
                 marginBottom: '8px',
                 textTransform: 'uppercase',
               }}
@@ -283,7 +286,7 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
                     fontSize: '0.7rem',
                     fontFamily: 'var(--font-mono)',
                     fontWeight: 600,
-                    color: '#ffffff',
+                    color: '#0a0a0c',
                     cursor: 'pointer',
                     borderRadius: '8px',
                   }}
@@ -311,8 +314,8 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
                 fontSize: '0.72rem',
                 fontFamily: 'var(--font-mono)',
                 fontWeight: 600,
-                color: '#e8d08d',
-                borderColor: 'rgba(232, 208, 141, 0.35)',
+                color: '#a37c26',
+                borderColor: 'rgba(196, 154, 60, 0.35)',
                 cursor: 'pointer',
                 borderRadius: '8px',
               }}
@@ -338,12 +341,12 @@ export const TelemetryHud: React.FC<TelemetryHudProps> = ({
           display: 'flex',
           alignItems: 'center',
           gap: '10px',
-          color: '#ffffff',
+          color: '#0a0a0c',
           cursor: 'pointer',
-          boxShadow: '0 10px 30px rgba(0, 5, 60, 0.35)',
+          boxShadow: '0 10px 30px rgba(10, 10, 12, 0.08)',
         }}
       >
-        <Compass size={17} color="#00f0ff" />
+        <Compass size={17} color="#0a0a0c" />
         <span
           className="font-display telemetry-hud-label"
           style={{

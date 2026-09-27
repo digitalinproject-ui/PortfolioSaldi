@@ -74,7 +74,7 @@ export const App: React.FC = () => {
         position: 'relative',
         width: '100vw',
         minHeight: '100vh',
-        backgroundColor: '#060fef',
+        backgroundColor: '#eef2f2',
         overflow: 'hidden',
       }}
     >

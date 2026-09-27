@@ -74,7 +74,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'rgba(6, 15, 239, 0.65)',
+        backgroundColor: 'rgba(10, 10, 12, 0.45)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
         padding: '24px',
@@ -88,9 +88,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
           maxWidth: '560px',
           borderRadius: '24px',
           padding: 'clamp(28px, 4vw, 40px)',
-          backgroundColor: 'rgba(4, 10, 190, 0.95)',
-          border: '1px solid rgba(255, 255, 255, 0.22)',
-          boxShadow: '0 30px 80px rgba(0, 5, 80, 0.8)',
+          backgroundColor: '#ffffff',
+          border: '1px solid rgba(10, 10, 12, 0.1)',
+          boxShadow: '0 30px 80px rgba(10, 10, 12, 0.2)',
           position: 'relative',
           maxHeight: '92vh',
           overflowY: 'auto',
@@ -112,7 +112,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#ffffff',
+            color: '#0a0a0c',
+            background: 'rgba(10, 10, 12, 0.05)',
+            border: '1px solid rgba(10, 10, 12, 0.1)',
             cursor: 'pointer',
             padding: 0,
           }}
@@ -132,16 +134,16 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
               gap: '16px',
             }}
           >
-            <CheckCircle2 size={48} color="#ffffff" />
+            <CheckCircle2 size={48} color="#0a0a0c" />
             <h3
-              style={{ fontSize: '1.6rem', fontWeight: 700, color: '#ffffff', margin: 0 }}
+              style={{ fontSize: '1.6rem', fontWeight: 700, color: '#0a0a0c', margin: 0 }}
             >
               Opening WhatsApp...
             </h3>
             <p
               style={{
                 fontSize: '0.9rem',
-                color: 'rgba(255, 255, 255, 0.82)',
+                color: '#4a5260',
                 lineHeight: 1.6,
                 margin: '0 0 12px 0',
                 maxWidth: '420px',
@@ -164,8 +166,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   gap: '8px',
                   padding: '10px 22px',
                   borderRadius: '9999px',
-                  backgroundColor: '#ffffff',
-                  color: '#060fef',
+                  backgroundColor: '#0a0a0c',
+                  color: '#ffffff',
                   fontSize: '0.85rem',
                   fontWeight: 700,
                   textDecoration: 'none',
@@ -184,9 +186,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 style={{
                   padding: '10px 20px',
                   borderRadius: '9999px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
-                  color: '#ffffff',
+                  background: 'rgba(10, 10, 12, 0.05)',
+                  border: '1px solid rgba(10, 10, 12, 0.15)',
+                  color: '#0a0a0c',
                   fontSize: '0.85rem',
                   fontWeight: 600,
                   cursor: 'pointer',
@@ -202,8 +204,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
               style={{
                 fontSize: '0.76rem',
                 fontWeight: 700,
-                color: '#ffffff',
-                opacity: 0.85,
+                color: 'rgba(10, 10, 12, 0.6)',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
                 marginBottom: '6px',
@@ -215,7 +216,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
               style={{
                 fontSize: 'clamp(1.5rem, 2.5vw, 1.85rem)',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: '#0a0a0c',
                 marginBottom: '8px',
                 marginTop: 0,
               }}
@@ -225,7 +226,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             <p
               style={{
                 fontSize: '0.88rem',
-                color: 'rgba(255, 255, 255, 0.78)',
+                color: '#4a5260',
                 lineHeight: 1.5,
                 marginBottom: '20px',
                 marginTop: 0,
@@ -256,20 +257,20 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     gap: '4px',
                     padding: '12px 14px',
                     borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    border: '1px solid rgba(255, 255, 255, 0.16)',
-                    color: '#ffffff',
+                    background: 'rgba(10, 10, 12, 0.03)',
+                    border: '1px solid rgba(10, 10, 12, 0.08)',
+                    color: '#0a0a0c',
                     textDecoration: 'none',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.16)';
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.35)';
+                    e.currentTarget.style.background = 'rgba(10, 10, 12, 0.06)';
+                    e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.2)';
                     e.currentTarget.style.transform = 'translateY(-2px)';
                   }}
                   onMouseOut={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+                    e.currentTarget.style.background = 'rgba(10, 10, 12, 0.03)';
+                    e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.08)';
                     e.currentTarget.style.transform = 'translateY(0)';
                   }}
                 >
@@ -278,12 +279,12 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                       {channel.icon}
                       <span style={{ fontSize: '0.8rem', fontWeight: 700 }}>{channel.label}</span>
                     </div>
-                    <ArrowUpRight size={14} color="rgba(255, 255, 255, 0.6)" />
+                    <ArrowUpRight size={14} color="rgba(10, 10, 12, 0.4)" />
                   </div>
                   <span
                     style={{
                       fontSize: '0.74rem',
-                      color: 'rgba(255, 255, 255, 0.7)',
+                      color: '#5e6673',
                       overflow: 'hidden',
                       textOverflow: 'ellipsis',
                       whiteSpace: 'nowrap',
@@ -304,11 +305,11 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 marginBottom: '20px',
               }}
             >
-              <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.14)' }} />
-              <span style={{ fontSize: '0.74rem', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+              <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(10, 10, 12, 0.1)' }} />
+              <span style={{ fontSize: '0.74rem', color: 'rgba(10, 10, 12, 0.5)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                 or leave a message
               </span>
-              <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.14)' }} />
+              <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(10, 10, 12, 0.1)' }} />
             </div>
 
             {/* Direct Message Form */}
@@ -322,7 +323,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     display: 'block',
                     fontSize: '0.78rem',
                     fontWeight: 600,
-                    color: 'rgba(255, 255, 255, 0.9)',
+                    color: '#0a0a0c',
                     marginBottom: '5px',
                   }}
                 >
@@ -338,9 +339,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     width: '100%',
                     padding: '11px 14px',
                     borderRadius: '10px',
-                    background: 'rgba(255, 255, 255, 0.07)',
-                    border: '1px solid rgba(255, 255, 255, 0.18)',
-                    color: '#ffffff',
+                    background: '#f6f8f8',
+                    border: '1px solid rgba(10, 10, 12, 0.15)',
+                    color: '#0a0a0c',
                     fontFamily: 'var(--font-sans)',
                     fontSize: '0.86rem',
                     outline: 'none',
@@ -355,7 +356,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     display: 'block',
                     fontSize: '0.78rem',
                     fontWeight: 600,
-                    color: 'rgba(255, 255, 255, 0.9)',
+                    color: '#0a0a0c',
                     marginBottom: '5px',
                   }}
                 >
@@ -371,9 +372,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     width: '100%',
                     padding: '11px 14px',
                     borderRadius: '10px',
-                    background: 'rgba(255, 255, 255, 0.07)',
-                    border: '1px solid rgba(255, 255, 255, 0.18)',
-                    color: '#ffffff',
+                    background: '#f6f8f8',
+                    border: '1px solid rgba(10, 10, 12, 0.15)',
+                    color: '#0a0a0c',
                     fontFamily: 'var(--font-sans)',
                     fontSize: '0.86rem',
                     outline: 'none',
@@ -388,7 +389,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     display: 'block',
                     fontSize: '0.78rem',
                     fontWeight: 600,
-                    color: 'rgba(255, 255, 255, 0.9)',
+                    color: '#0a0a0c',
                     marginBottom: '5px',
                   }}
                 >
@@ -404,9 +405,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     width: '100%',
                     padding: '11px 14px',
                     borderRadius: '10px',
-                    background: 'rgba(255, 255, 255, 0.07)',
-                    border: '1px solid rgba(255, 255, 255, 0.18)',
-                    color: '#ffffff',
+                    background: '#f6f8f8',
+                    border: '1px solid rgba(10, 10, 12, 0.15)',
+                    color: '#0a0a0c',
                     fontFamily: 'var(--font-sans)',
                     fontSize: '0.86rem',
                     outline: 'none',

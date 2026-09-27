@@ -57,9 +57,15 @@ def get_source_frame_num(angle_deg):
         return 40.0 + smoothstep(t) * (65.0 - 40.0)
 
 def main():
-    video_path = 'Public/Character.mp4' if os.path.exists('Public/Character.mp4') else 'public/character.mp4'
-    if not os.path.exists(video_path):
-        print(f"Error: Video file not found at {video_path}")
+    candidates = [
+        'Public/CharacterNew2.mp4',
+        'public/CharacterNew2.mp4',
+        'Public/Character.mp4',
+        'public/character.mp4',
+    ]
+    video_path = next((p for p in candidates if os.path.exists(p)), None)
+    if not video_path:
+        print(f"Error: Video file not found among candidates: {candidates}")
         sys.exit(1)
 
     print(f"Opening video: {video_path}")

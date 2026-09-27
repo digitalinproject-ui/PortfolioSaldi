@@ -41,18 +41,21 @@
 }
 
 :root {
-  --bg-studio: #060fef;
-  --bg-studio-darker: #050cc4;
+  --bg-studio: #eef2f2;
+  --bg-studio-pure: #ffffff;
+  --bg-studio-darker: #e0e5e5;
+  --color-black: #0a0a0c;
+  --color-black-90: rgba(10, 10, 12, 0.90);
+  --color-black-70: rgba(10, 10, 12, 0.70);
+  --color-black-40: rgba(10, 10, 12, 0.40);
+  --color-black-20: rgba(10, 10, 12, 0.20);
+  --color-black-10: rgba(10, 10, 12, 0.10);
+  --color-black-05: rgba(10, 10, 12, 0.05);
   --color-white: #ffffff;
   --color-white-90: rgba(255, 255, 255, 0.90);
   --color-white-70: rgba(255, 255, 255, 0.70);
-  --color-white-40: rgba(255, 255, 255, 0.40);
-  --color-white-20: rgba(255, 255, 255, 0.20);
-  --color-white-10: rgba(255, 255, 255, 0.10);
-  --color-white-05: rgba(255, 255, 255, 0.05);
-  --color-accent-cyan: #00f0ff;
-  --color-accent-gold: #e8d08d;
-  --color-accent-amber: #ffaa40;
+  --color-accent-gold: #c49a3c;
+  --color-accent-amber: #de751f;
 
   --font-name: 'Dripdrop', 'Dripdrop Solid', 'Gusom', cursive;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -75,7 +78,7 @@ html, body {
   height: 100%;
   overflow-x: hidden;
   background-color: var(--bg-studio);
-  color: var(--color-white);
+  color: var(--color-black);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -98,42 +101,42 @@ html, body {
   background: var(--bg-studio);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(10, 10, 12, 0.2);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(10, 10, 12, 0.35);
 }
 
-/* Glassmorphic Luxury Container */
+/* Glassmorphic Monochrome Container */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 20px 50px rgba(0, 5, 80, 0.35);
+  border: 1px solid rgba(10, 10, 12, 0.08);
+  box-shadow: 0 16px 40px rgba(10, 10, 12, 0.07);
 }
 
 .glass-panel-subtle {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(10, 10, 12, 0.06);
 }
 
 .glass-pill {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(10, 10, 12, 0.1);
   border-radius: 9999px;
   transition: all 0.3s var(--ease-out-expo);
 }
 
 .glass-pill:hover {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  background: #ffffff;
+  border-color: rgba(10, 10, 12, 0.25);
+  box-shadow: 0 6px 20px rgba(10, 10, 12, 0.08);
 }
 
 /* Typography styles */
@@ -177,8 +180,8 @@ html, body {
   align-items: center;
   gap: 10px;
   padding: 12px 24px;
-  background: #ffffff;
-  color: #050eb0;
+  background: var(--color-black);
+  color: #ffffff;
   font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 700;
@@ -187,14 +190,14 @@ html, body {
   border: none;
   border-radius: 9999px;
   cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(10, 10, 12, 0.18);
   transition: all 0.35s var(--ease-out-expo);
 }
 
 .luxury-btn:hover {
   transform: translateY(-2px);
-  background: #ffffff;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35), 0 0 30px rgba(255, 255, 255, 0.4);
+  background: #000000;
+  box-shadow: 0 14px 36px rgba(10, 10, 12, 0.28);
 }
 
 .luxury-btn-secondary {
@@ -202,14 +205,14 @@ html, body {
   align-items: center;
   gap: 10px;
   padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--color-black);
   font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(10, 10, 12, 0.14);
   border-radius: 9999px;
   cursor: pointer;
   backdrop-filter: blur(10px);
@@ -217,10 +220,10 @@ html, body {
 }
 
 .luxury-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: #ffffff;
+  border-color: rgba(10, 10, 12, 0.35);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 24px rgba(10, 10, 12, 0.08);
 }
 
 /* Keyframe animations */
@@ -285,22 +288,23 @@ html, body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 16px;
-  height: 16px;
-  background: #ffffff;
+  width: 15px;
+  height: 15px;
+  background: var(--color-black);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 14px rgba(255, 255, 255, 0.95), 0 0 24px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 10px rgba(10, 10, 12, 0.35);
   will-change: transform, width, height;
   transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1), height 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.22s ease;
 }
 
 .liquid-droplet-main.is-hovering {
-  width: 46px;
-  height: 46px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 28px rgba(255, 255, 255, 0.95), inset 0 0 8px rgba(6, 15, 239, 0.25);
+  width: 44px;
+  height: 44px;
+  background: rgba(10, 10, 12, 0.08);
+  border: 1.5px solid rgba(10, 10, 12, 0.35);
+  box-shadow: 0 0 20px rgba(10, 10, 12, 0.06);
   animation: liquidMorph 3.5s ease-in-out infinite alternate;
 }
 
@@ -308,28 +312,28 @@ html, body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 12px;
-  height: 12px;
-  background: #ffffff;
+  width: 11px;
+  height: 11px;
+  background: var(--color-black);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
   will-change: transform;
-  opacity: 0.92;
+  opacity: 0.85;
 }
 
 .liquid-droplet-trail-2 {
   position: fixed;
   top: 0;
   left: 0;
-  width: 8px;
-  height: 8px;
-  background: #ffffff;
+  width: 7px;
+  height: 7px;
+  background: var(--color-black);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
   will-change: transform;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 /* Organic liquid bubble morph animation during hover */
@@ -359,10 +363,10 @@ html, body {
   pointer-events: none;
   background: linear-gradient(
     to top,
-    rgba(6, 15, 239, 0.96) 0%,
-    rgba(6, 15, 239, 0.85) 45%,
-    rgba(6, 15, 239, 0.35) 75%,
-    rgba(6, 15, 239, 0) 100%
+    rgba(238, 242, 242, 0.98) 0%,
+    rgba(238, 242, 242, 0.90) 45%,
+    rgba(238, 242, 242, 0.40) 75%,
+    rgba(238, 242, 242, 0) 100%
   );
   z-index: 22;
 }
