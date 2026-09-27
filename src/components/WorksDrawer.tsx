@@ -99,25 +99,25 @@ const SELECTED_WORKS: ProjectItem[] = [
 const SIDE_PROJECTS: ProjectItem[] = [
   {
     id: 'digitalin',
-    year: 'Independent',
+    year: 'Side Project',
     entity: 'Digitalin',
-    role: 'Independent Creative Project',
+    role: 'Creative Lab',
     instagramUrl: 'https://www.instagram.com/digitalin.labs',
     instagramHandle: '@digitalin.labs',
     description:
-      'An independent creative initiative exploring experimental visual identities, contemporary typography, and innovative digital content formats. Serves as a creative laboratory to test forward-thinking design concepts, art direction, and digital storytelling without corporate constraints. Fosters continuous growth in aesthetic refinement, visual problem-solving, and cross-platform content development.',
-    tags: ['Digital Creativity', 'Branding Exploration', 'Content Development', 'Visual Communication', 'Creative Direction'],
+      'Personal creative lab exploring brand identity, experimental typography, and interactive digital content.',
+    tags: ['Brand Identity', 'Creative Direction', 'Typography', 'Content Exploration'],
   },
   {
     id: 'tappi',
-    year: 'Independent',
+    year: 'Side Project',
     entity: 'TAPPI.id',
-    role: 'Independent SaaS Product Project',
+    role: 'SaaS Platform',
     instagramUrl: 'https://www.instagram.com/tappi.id/',
     instagramHandle: '@tappi.id',
     description:
-      'A B2B SaaS platform engineered to empower SMBs in managing customer relationships, collecting actionable feedback, and building verifiable digital reputations. Focused on intuitive platform experience (PX) and clean interface architecture to facilitate seamless customer-to-business interactions. Delivered a user-focused digital solution that strengthens brand trust and customer retention for emerging enterprises.',
-    tags: ['SaaS Product Development', 'B2B Platform', 'SMB Customer Engagement', 'Feedback Management', 'Digital Reputation'],
+      'Customer feedback and digital reputation platform built for small and medium businesses.',
+    tags: ['SaaS', 'Product Design', 'Customer Feedback', 'Web App'],
     isHighlighted: true,
   },
 ];
@@ -614,7 +614,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                           letterSpacing: '0.04em',
                         }}
                       >
-                        {item.year} • {item.entity}
+                        {item.year}
                       </span>
                       <span
                         style={{
