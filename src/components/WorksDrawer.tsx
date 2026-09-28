@@ -100,18 +100,6 @@ const SELECTED_WORKS: ProjectItem[] = [
 
 const SIDE_PROJECTS: ProjectItem[] = [
   {
-    id: 'patokan',
-    year: 'Side Project',
-    entity: 'Patokan Nusantara',
-    role: 'Web Application',
-    projectUrl: 'https://patokan.vercel.app',
-    projectUrlLabel: 'patokan.vercel.app',
-    description:
-      'Cost of goods sold (HPP) calculator and pricing tool designed for Indonesian MSMEs, featuring break-even analysis and platform fee margin protection.',
-    tags: ['Web App', 'Fintech Tool', 'Product Design', 'HPP & Pricing', 'MSME'],
-    isHighlighted: true,
-  },
-  {
     id: 'digitalin',
     year: 'Side Project',
     entity: 'Digitalin',
@@ -121,6 +109,17 @@ const SIDE_PROJECTS: ProjectItem[] = [
     description:
       'Personal creative lab exploring brand identity, experimental typography, and interactive digital content.',
     tags: ['Brand Identity', 'Creative Direction', 'Typography', 'Content Exploration'],
+  },
+  {
+    id: 'patokan',
+    year: 'Side Project',
+    entity: 'Patokan Nusantara',
+    role: 'Web Application',
+    projectUrl: 'https://patokan-umkm.vercel.app/',
+    projectUrlLabel: 'patokan-umkm.vercel.app',
+    description:
+      'Cost of goods sold (HPP) calculator and pricing tool designed for Indonesian MSMEs, featuring break-even analysis and platform fee margin protection.',
+    tags: ['Web App', 'Fintech Tool', 'Product Design', 'HPP & Pricing', 'MSME'],
   },
   {
     id: 'tappi',
