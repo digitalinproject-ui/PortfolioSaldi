@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Sparkles, Briefcase, Layers, Wrench, ArrowUpRight, Tv } from 'lucide-react';
+import { X, Sparkles, Briefcase, Layers, Wrench, ArrowUpRight, Tv, Globe } from 'lucide-react';
 import { audioEngine } from './AudioEngine.ts';
 
 const InstagramIcon = ({ size = 15 }: { size?: number }) => (
@@ -45,6 +45,8 @@ interface ProjectItem {
   isHighlighted?: boolean;
   instagramUrl?: string;
   instagramHandle?: string;
+  projectUrl?: string;
+  projectUrlLabel?: string;
   mediaExposure?: { title: string; type: 'youtube' | 'instagram'; url: string }[];
 }
 
@@ -98,6 +100,18 @@ const SELECTED_WORKS: ProjectItem[] = [
 
 const SIDE_PROJECTS: ProjectItem[] = [
   {
+    id: 'patokan',
+    year: 'Side Project',
+    entity: 'Patokan Nusantara',
+    role: 'Web Application',
+    projectUrl: 'https://patokan.vercel.app',
+    projectUrlLabel: 'patokan.vercel.app',
+    description:
+      'Cost of goods sold (HPP) calculator and pricing tool designed for Indonesian MSMEs, featuring break-even analysis and platform fee margin protection.',
+    tags: ['Web App', 'Fintech Tool', 'Product Design', 'HPP & Pricing', 'MSME'],
+    isHighlighted: true,
+  },
+  {
     id: 'digitalin',
     year: 'Side Project',
     entity: 'Digitalin',
@@ -118,7 +132,6 @@ const SIDE_PROJECTS: ProjectItem[] = [
     description:
       'Customer feedback and digital reputation platform built for small and medium businesses.',
     tags: ['SaaS', 'Product Design', 'Customer Feedback', 'Web App'],
-    isHighlighted: true,
   },
 ];
 
@@ -633,7 +646,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                       </span>
                     </div>
 
-                    {/* Title & Instagram Link */}
+                    {/* Title & External Links */}
                     <div
                       style={{
                         display: 'flex',
@@ -656,45 +669,87 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                         {item.entity}
                       </h4>
 
-                      {item.instagramUrl && (
-                        <a
-                          href={item.instagramUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            audioEngine.playClick(1500);
-                          }}
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '6px',
-                            fontSize: '0.76rem',
-                            fontWeight: 600,
-                            color: '#0a0a0c',
-                            backgroundColor: 'rgba(10, 10, 12, 0.05)',
-                            padding: '4px 11px',
-                            borderRadius: '9999px',
-                            border: '1px solid rgba(10, 10, 12, 0.12)',
-                            textDecoration: 'none',
-                            transition: 'all 0.2s ease',
-                          }}
-                          onMouseOver={(e) => {
-                            e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.1)';
-                            e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.3)';
-                            e.currentTarget.style.transform = 'translateY(-1px)';
-                          }}
-                          onMouseOut={(e) => {
-                            e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.05)';
-                            e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.12)';
-                            e.currentTarget.style.transform = 'translateY(0)';
-                          }}
-                        >
-                          <InstagramIcon size={13} />
-                          <span>{item.instagramHandle}</span>
-                          <ArrowUpRight size={12} color="rgba(10, 10, 12, 0.5)" />
-                        </a>
-                      )}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                        {item.projectUrl && (
+                          <a
+                            href={item.projectUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              audioEngine.playClick(1500);
+                            }}
+                            style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '6px',
+                              fontSize: '0.76rem',
+                              fontWeight: 600,
+                              color: '#0a0a0c',
+                              backgroundColor: 'rgba(10, 10, 12, 0.05)',
+                              padding: '4px 11px',
+                              borderRadius: '9999px',
+                              border: '1px solid rgba(10, 10, 12, 0.12)',
+                              textDecoration: 'none',
+                              transition: 'all 0.2s ease',
+                            }}
+                            onMouseOver={(e) => {
+                              e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.1)';
+                              e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.3)';
+                              e.currentTarget.style.transform = 'translateY(-1px)';
+                            }}
+                            onMouseOut={(e) => {
+                              e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.05)';
+                              e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.12)';
+                              e.currentTarget.style.transform = 'translateY(0)';
+                            }}
+                          >
+                            <Globe size={13} />
+                            <span>{item.projectUrlLabel || item.projectUrl.replace(/^https?:\/\//, '')}</span>
+                            <ArrowUpRight size={12} color="rgba(10, 10, 12, 0.5)" />
+                          </a>
+                        )}
+
+                        {item.instagramUrl && (
+                          <a
+                            href={item.instagramUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              audioEngine.playClick(1500);
+                            }}
+                            style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '6px',
+                              fontSize: '0.76rem',
+                              fontWeight: 600,
+                              color: '#0a0a0c',
+                              backgroundColor: 'rgba(10, 10, 12, 0.05)',
+                              padding: '4px 11px',
+                              borderRadius: '9999px',
+                              border: '1px solid rgba(10, 10, 12, 0.12)',
+                              textDecoration: 'none',
+                              transition: 'all 0.2s ease',
+                            }}
+                            onMouseOver={(e) => {
+                              e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.1)';
+                              e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.3)';
+                              e.currentTarget.style.transform = 'translateY(-1px)';
+                            }}
+                            onMouseOut={(e) => {
+                              e.currentTarget.style.backgroundColor = 'rgba(10, 10, 12, 0.05)';
+                              e.currentTarget.style.borderColor = 'rgba(10, 10, 12, 0.12)';
+                              e.currentTarget.style.transform = 'translateY(0)';
+                            }}
+                          >
+                            <InstagramIcon size={13} />
+                            <span>{item.instagramHandle}</span>
+                            <ArrowUpRight size={12} color="rgba(10, 10, 12, 0.5)" />
+                          </a>
+                        )}
+                      </div>
                     </div>
 
                     {/* Description */}

@@ -115,7 +115,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
             marginBottom: '24px',
           }}
         >
-          Combining over five years of corporate visual communication experience (FIFGROUP & PermataBank), entrepreneurial brand-building insight as Co-Founder at Kitorato, and independent digital product ventures (Digitalin & TAPPI.id). Dedicated to crafting strategic, aesthetic, and impactful visual content that commands attention.
+          Combining over five years of corporate visual communication experience (FIFGROUP & PermataBank), entrepreneurial brand-building insight as Co-Founder at Kitorato, and independent digital product ventures (Digitalin, TAPPI.id, and Patokan Nusantara). Dedicated to crafting strategic, aesthetic, and impactful visual content that commands attention.
         </p>
 
         {/* Skill areas */}
