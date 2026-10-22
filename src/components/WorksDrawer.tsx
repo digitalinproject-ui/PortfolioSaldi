@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Sparkles, Briefcase, Layers, Wrench, ArrowUpRight, Tv, Globe } from 'lucide-react';
+import { X, Sparkles, Briefcase, Layers, Wrench, ArrowUpRight, Tv, Globe, Newspaper } from 'lucide-react';
 import { audioEngine } from './AudioEngine.ts';
 
 const InstagramIcon = ({ size = 15 }: { size?: number }) => (
@@ -47,7 +47,7 @@ interface ProjectItem {
   instagramHandle?: string;
   projectUrl?: string;
   projectUrlLabel?: string;
-  mediaExposure?: { title: string; type: 'youtube' | 'instagram'; url: string }[];
+  mediaExposure?: { title: string; type: 'youtube' | 'instagram' | 'news'; url: string }[];
 }
 
 const SELECTED_WORKS: ProjectItem[] = [
@@ -65,9 +65,9 @@ const SELECTED_WORKS: ProjectItem[] = [
     id: 'kitorato',
     year: '2019 . 2021',
     entity: 'Kitorato',
-    role: 'Co-Founder',
+    role: 'Founder',
     description:
-      'Co-founded and scaled Kitorato as an entrepreneurial venture, directing brand development, creative business strategy, and end-to-end commercial operations. Spearheaded product presentation, spatial brand touchpoints, and customer journey design to drive organic engagement and customer loyalty. Gained extensive firsthand mastery in analyzing customer behavior, managing business activities, and translating creative concepts into viable enterprise growth.',
+      'Founded and scaled Kitorato as an entrepreneurial venture, directing brand development, creative business strategy, and end-to-end commercial operations. Spearheaded product presentation, spatial brand touchpoints, and customer journey design to drive organic engagement and customer loyalty. Gained extensive firsthand mastery in analyzing customer behavior, managing business activities, and translating creative concepts into viable enterprise growth.',
     tags: ['Brand Development', 'Business Operations', 'Entrepreneurship', 'Customer Experience', 'Creative Strategy'],
     mediaExposure: [
       {
@@ -79,6 +79,26 @@ const SELECTED_WORKS: ProjectItem[] = [
         title: 'Asian Boss Español',
         type: 'youtube',
         url: 'https://www.youtube.com/watch?v=Vyi5dRCsU7E',
+      },
+      {
+        title: 'Kompas.com',
+        type: 'news',
+        url: 'https://megapolitan.kompas.com/read/2019/09/02/11251541/3-pemuda-penyandang-disabilitas-berkongsi-buka-kedai-kopi',
+      },
+      {
+        title: 'Liputan6',
+        type: 'news',
+        url: 'https://www.liputan6.com/disabilitas/read/4162461/kisah-awal-mula-kondisi-disabilitas-di-balik-kesuksesan-kito-rato',
+      },
+      {
+        title: 'IDN Times',
+        type: 'news',
+        url: 'https://www.idntimes.com/business/economy/lewat-semangat-kesetaraan-bisnis-kopi-kito-rato-menuai-untung-besar-00-9751v-h4dcl8',
+      },
+      {
+        title: 'Brilio.net',
+        type: 'news',
+        url: 'https://www.brilio.net/sosok/kito-rato-kedai-minuman-ala-trio-disabilitas-yang-menginspirasi-190827p.html',
       },
       {
         title: '@kitorato.id',
@@ -240,7 +260,7 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                 lineHeight: 1.5,
               }}
             >
-              Digital Content & Visual Communication Designer with 5+ years of professional experience across corporate environments and independent digital projects.
+              Visual & Web Designer with 5+ years of professional experience across corporate environments and independent digital projects.
             </p>
           </div>
 
@@ -542,10 +562,12 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
                               }}
                             >
                               {media.type === 'instagram' ? (
-                                <InstagramIcon size={13} />
-                              ) : (
-                                <YouTubeIcon size={13} />
-                              )}
+                                  <InstagramIcon size={13} />
+                                ) : media.type === 'youtube' ? (
+                                  <YouTubeIcon size={13} />
+                                ) : (
+                                  <Newspaper size={13} />
+                                )}
                               <span>{media.title}</span>
                               <ArrowUpRight size={12} color="rgba(10, 10, 12, 0.5)" />
                             </a>
@@ -976,9 +998,10 @@ export const WorksDrawer: React.FC<WorksDrawerProps> = ({ isOpen, onClose }) => 
             lineHeight: 1.5,
           }}
         >
-          Saldi Rahman • Digital Content & Visual Communication Designer
+          Saldi Rahman • Visual & Web Designer
         </div>
       </div>
     </div>
   );
 };
+

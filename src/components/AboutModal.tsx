@@ -104,7 +104,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
             marginBottom: '16px',
           }}
         >
-          Digital Content & Visual Communication Designer • 5+ Years Exp.
+          Visual & Web Designer • 5+ Years Exp.
         </div>
 
         <p
@@ -115,7 +115,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
             marginBottom: '24px',
           }}
         >
-          Combining over five years of corporate visual communication experience (FIFGROUP & PermataBank), entrepreneurial brand-building insight as Co-Founder at Kitorato, and independent digital product ventures (Digitalin, TAPPI.id, and Patokan Nusantara). Dedicated to crafting strategic, aesthetic, and impactful visual content that commands attention.
+          Combining over five years of corporate visual communication experience (FIFGROUP & PermataBank), entrepreneurial brand-building insight as Founder at Kitorato, and independent digital product ventures (Digitalin, TAPPI.id, and Patokan Nusantara). Dedicated to crafting strategic, aesthetic, and impactful visual content that commands attention.
         </p>
 
         {/* Skill areas */}
@@ -133,7 +133,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
               <span style={{ fontSize: '0.88rem', fontWeight: 700 }}>Creative Practice</span>
             </div>
             <div style={{ fontSize: '0.82rem', color: '#4a5260', lineHeight: 1.6 }}>
-              Visual Communication, Digital Content Creation, Corporate Campaigns, Brand Identity, Layout Design
+              Visual Communication, Web Design, Brand Identity, Corporate Campaigns, Layout Design
             </div>
           </div>
 
@@ -178,3 +178,4 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenC
     </div>
   );
 };
+

@@ -110,7 +110,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               lineHeight: 1.3,
             }}
           >
-            Digital Content & Visual Communication
+            Visual & Web Designer
           </div>
 
           <div
@@ -240,3 +240,4 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     </div>
   );
 };
+

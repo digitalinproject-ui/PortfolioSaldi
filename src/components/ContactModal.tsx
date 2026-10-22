@@ -234,7 +234,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 marginTop: 0,
               }}
             >
-              Reach out directly for digital content initiatives, corporate visual communication, brand design, or creative collaborations.
+              Reach out directly for brand design, web design projects, corporate visuals, or creative collaborations.
             </p>
 
             {/* Direct Contact Channels */}
