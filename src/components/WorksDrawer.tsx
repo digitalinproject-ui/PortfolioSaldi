@@ -81,6 +81,16 @@ const SELECTED_WORKS: ProjectItem[] = [
         url: 'https://www.youtube.com/watch?v=Vyi5dRCsU7E',
       },
       {
+        title: 'DAAI TV',
+        type: 'youtube',
+        url: 'https://www.youtube.com/watch?v=2tQYR9LpVQI',
+      },
+      {
+        title: 'Kemensos RI',
+        type: 'youtube',
+        url: 'https://www.youtube.com/watch?v=S5yxHR6cUjU',
+      },
+      {
         title: 'Kompas.com',
         type: 'news',
         url: 'https://megapolitan.kompas.com/read/2019/09/02/11251541/3-pemuda-penyandang-disabilitas-berkongsi-buka-kedai-kopi',
@@ -94,6 +104,11 @@ const SELECTED_WORKS: ProjectItem[] = [
         title: 'IDN Times',
         type: 'news',
         url: 'https://www.idntimes.com/business/economy/lewat-semangat-kesetaraan-bisnis-kopi-kito-rato-menuai-untung-besar-00-9751v-h4dcl8',
+      },
+      {
+        title: 'Indozone',
+        type: 'news',
+        url: 'https://news.indozone.id/tau-gak-sih/911478522/usaha-disabilitas-kitorato-diharapkan-jadi-role-model-di-indonesia',
       },
       {
         title: 'Brilio.net',
